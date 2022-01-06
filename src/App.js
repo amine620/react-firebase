@@ -11,18 +11,17 @@ import { useEffect } from 'react';
 function App() {
  
   return (
-    <div className="App">
-     
-      <Provider>
         <BrowserRouter>
-            <Navbar/>
-        <Routes>
-          <Route path={'/form'}  element={<Form/>} />
-          <Route path={'/'}  element={<Blogs/>} />
-        </Routes>
+
+            <Provider>
+              <Navbar/>
+              <Routes>
+                <Route path={'/form'}  element={<Form/>} />
+                <Route path={'/'}  element={<Blogs/>} />
+              </Routes>
+            </Provider>
+  
         </BrowserRouter>
-      </Provider>
-    </div>
   );
 }
 

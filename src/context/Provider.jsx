@@ -1,6 +1,7 @@
 import React, { createContext, useEffect, useState } from 'react'
-import {addDoc, collection,getDocs} from 'firebase/firestore'
+import {addDoc, collection,getDocs,deleteDoc,doc} from 'firebase/firestore'
 import { db } from '../firebase/config'
+import { useNavigate } from 'react-router-dom'
 
 
 
@@ -8,6 +9,7 @@ export const context=createContext()
 export default function Provider(props) {
 
     const [blogs,setblogs]=useState([])
+    const navigate=useNavigate()
 
   
     const postsCollectionRef = collection(db, "blogs")
@@ -27,15 +29,32 @@ export default function Provider(props) {
 
     }, []);
 
-    const create=(post)=>{
+
+
+    const create=(blog)=>{
         const postCollectionRef=collection(db,'blogs')
-        addDoc(postCollectionRef,post)
+        addDoc(postCollectionRef,blog)
+        .then(()=>{
+            setblogs([...blogs,blog])
+            navigate('/')
+        })  
+    }
+
+
+    const remove=(id)=>{
+        const blogDoc=doc(db,'blogs',id)
+        deleteDoc(blogDoc)
+        .then(()=>{
+            const result=blogs.filter(blog=>blog.id!=id)
+            setblogs(result)
+        })
     }
     return (
         <div>
             <context.Provider value={{
                 blogs,
-                create
+                create,
+                remove
             }}>
                 {
                     props.children
