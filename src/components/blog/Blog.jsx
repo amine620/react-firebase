@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { useContext } from 'react/cjs/react.development'
 import { context } from '../../context/Provider'
 
@@ -17,6 +18,9 @@ export default function Blog(props) {
                             {" "}
                             &#128465;
                         </button>
+                    </div>
+                    <div >
+                        <Link className='details' to={`/details/${props.data.id}`}>&#10064;</Link>
                     </div>
                 </div>
                 <div className="postTextContainer"> {props.data.content}</div>

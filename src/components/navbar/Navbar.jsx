@@ -11,12 +11,25 @@ export default function Navbar() {
           </button>
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav">
-              <li className="nav-item">
-                <Link className="nav-link" to="/">blogs</Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/form">create</Link>
-              </li>
+              {
+                 localStorage.getItem('isAuth')==null ?
+
+                (     <li className="nav-item">
+                      <Link className="nav-link" to="/login">login</Link>
+                      </li>
+                )
+                : 
+                (
+                  <>
+                        <li className="nav-item">
+                          <Link className="nav-link" to="/">blogs</Link>
+                      </li>
+                      <li className="nav-item">
+                         <Link className="nav-link" to="/form">create</Link>
+                     </li>
+               </>
+                )
+              }
             </ul>
           </div>
         </div>

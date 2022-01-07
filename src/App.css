@@ -113,6 +113,14 @@
     cursor: pointer;
   }
   
+  .details {
+    border: none;
+  
+    background: none;
+    font-size: 30px;
+    cursor: pointer;
+    font-size:20px;
+  }
   .post .postTextContainer {
     word-wrap: break-word;
     height: auto;

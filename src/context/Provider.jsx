@@ -13,6 +13,7 @@ export default function Provider(props) {
 
   
     const postsCollectionRef = collection(db, "blogs")
+    
     useEffect(() => {
         // get data from firebase  
        async function getData(){
@@ -49,6 +50,7 @@ export default function Provider(props) {
             setblogs(result)
         })
     }
+
     return (
         <div>
             <context.Provider value={{

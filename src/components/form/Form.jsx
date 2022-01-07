@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { context } from '../../context/Provider'
-import Logout from '../logout/Logout'
+import Logout from '../Auth/Logout'
 
 export default function Form() {
 
@@ -19,11 +19,15 @@ export default function Form() {
 
 
     
-  
+      if(localStorage.getItem('isAuth')==null)
+      {
+        window.location='/login'
+        return ''
+      }
     return (
       
         <div className="createPostPage">
-        
+         <Logout/>
       <div className="cpContainer">
         <h1>Create A Post</h1>
         <div className="inputGp">
