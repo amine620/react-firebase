@@ -22,7 +22,6 @@ export default function Blogs() {
    }
     return (
         <div className="homePage">
-         <h1>{auth.currentUser.displayName}</h1>
          <Logout/>
         
         {

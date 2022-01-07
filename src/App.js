@@ -7,7 +7,6 @@ import Blogs from './components/blog/Blogs';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Details from './components/blog/Details';
 import Login from './components/Auth/Login';
-import User from './components/Auth/User';
 
 function App() {
  
@@ -21,7 +20,6 @@ function App() {
                 <Route path={'/'}  element={<Blogs/>} />
                 <Route path={'/details/:id'}  element={<Details/>} />
                 <Route path={'/login'}  element={<Login/>} />
-                <Route path={'/user'}  element={<User/>} />
               </Routes>
             </Provider>
   
