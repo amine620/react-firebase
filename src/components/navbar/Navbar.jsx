@@ -27,9 +27,7 @@ export default function Navbar() {
                       <li className="nav-item">
                          <Link className="nav-link" to="/form">create</Link>
                      </li>
-                     <li className="nav-item">
-                         <Link className="nav-link" to="/user">profile</Link>
-                     </li>
+                    
                </>
                 )
               }
